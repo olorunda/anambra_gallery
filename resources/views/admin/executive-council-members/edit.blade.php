@@ -21,7 +21,7 @@
                 </div>
             </div>
 
-            <form method="POST" action="{{ route('admin.executive-council-members.update', $member) }}">
+            <form method="POST" id="submitForm" action="{{ route('admin.executive-council-members.update', $member) }}">
                 @csrf
                 @method('PUT')
 
@@ -150,14 +150,14 @@
                         </div>
                     </div>
                 </div>
-
+            </form>
                 <div class="card-footer d-flex justify-content-between">
                     <div>
-                        <form method="POST" action="{{ route('admin.executive-council-members.destroy', $member) }}"
+                        <form id="deleteForm" method="POST" action="{{ route('admin.executive-council-members.destroy', $member) }}"
                               onsubmit="return confirm('Are you sure you want to delete this member? This action cannot be undone.')" class="d-inline">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-outline-danger">
+                            <button type="button" onclick="document.querySelector('#deleteForm').submit()" class="btn btn-outline-danger">
                                 <i class="bi bi-trash me-1"></i>
                                 Delete Member
                             </button>
@@ -165,10 +165,10 @@
                     </div>
                     <div class="d-flex gap-2">
                         <a href="{{ route('admin.executive-council-members.show', $member) }}" class="btn btn-secondary">Cancel</a>
-                        <button type="submit" class="btn btn-primary">Update Member</button>
+                        <button type="button" onclick="document.querySelector('#submitForm').submit()" class="btn btn-primary">Update Member</button>
                     </div>
                 </div>
-            </form>
+
         </div>
     </div>
 </div>

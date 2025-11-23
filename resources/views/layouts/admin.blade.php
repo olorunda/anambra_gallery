@@ -237,18 +237,7 @@
                         Achievements
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('admin.council-members.*') ? 'active' : '' }}" href="{{ route('admin.council-members.index') }}">
-                        <i class="bi bi-person-badge"></i>
-                        Council Members
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('admin.settings.*') ? 'active' : '' }}" href="{{ route('admin.settings.index') }}">
-                        <i class="bi bi-gear"></i>
-                        Settings
-                    </a>
-                </li>
+
             </ul>
 
             <hr class="border-white-50 my-4">
@@ -260,12 +249,12 @@
                         View Site
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard') }}">
-                        <i class="bi bi-person-circle"></i>
-                        Profile
-                    </a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="{{ route('dashboard') }}">--}}
+{{--                        <i class="bi bi-person-circle"></i>--}}
+{{--                        Profile--}}
+{{--                    </a>--}}
+{{--                </li>--}}
             </ul>
         </nav>
     </div>
