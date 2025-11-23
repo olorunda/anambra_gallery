@@ -72,7 +72,7 @@
 {{--            </p>--}}
 {{--        </header>--}}
         <header class="flex items-start justify-between mb-8">
-            <img onclick="window.location='{{route('home')}}'" alt="Anambra State Emblem" class="h-20 w-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAahs_GBXB_QF-I2oDBJhi15x_dMHjAZ1F-OLBdDdy0qr-5324psB2fiDLoURwDT-LHSiDMy1QKS8Snt--7wIvkhYqb0lknBNdsNgwSCeFJUJ5J59P4eilVazpgi1OfzlmrL77B1l8Fe0Ofrx_2TfB1kIO8hLsurBWWLosZX4w4KylXUQ_ion0Xq4oKmpSZV3pL9C7bjsxxcnwwQrSB6rm-JP69cTZDSPwfvJRY89Ou34gtfqXXKaluv03XEfCNT2TAtgtWwx-20byP"/>
+            <img onclick="window.location='{{route('home')}}'" alt="Anambra State Emblem" class="h-20 w-20" src="{{asset('logo.png')}}"/>
             <div class="text-center">
                 <h1 class="font-display text-4xl md:text-5xl font-bold">   @yield('header_title')</h1>
                 <p class="mt-2 text-lg text-text-light/80 dark:text-text-dark/80">

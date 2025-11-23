@@ -49,12 +49,11 @@
                 <div class="absolute inset-0 bg-black/50"></div>
             </div>
             <div class="relative z-10 w-full max-w-7xl rounded-2xl bg-black/40 backdrop-blur-lg p-6 sm:p-8 md:p-12 text-white shadow-2xl">
-                <img alt="Anambra State Seal" class="h-16 w-16 sm:h-20 sm:w-20 mt-4 sm:mt-0 mx-auto"
-                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCSa2pnsJ_OX4IR38KZWKQINPi8zpXlixHs6t3YHpMdVPi0VXuMfWV7DAZwXLrfw_1ZyRyF5Yf9q-qeNMtAkliR7ctqolYR9R43Edvg77J8gs6m1GIzi8xNbNG5YKKp__IZzsWgUVFY23DHjmWW1KNor5ZJhRlxmtWtMNdM587nhs2y8E85xv_AwgNoXB7AjGMTN9VNgLKT03-H0oV01FGxhwd1H_hzZMri0kgUiao9YDLKnxdm1J3WWiSAYkZMUwvC7BCwFyM6QrB"/>
+
 
                 <header class="flex flex-col sm:flex-row justify-between items-center mb-8">
+                    <img src="{{asset('img_1.png')}}">
 
-                    <h1 class="text-6xl sm:text-7xl md:text-8xl font-bold tracking-[1em] opacity-30">ANAMBRA</h1>
                 </header>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="flex flex-col justify-between">
