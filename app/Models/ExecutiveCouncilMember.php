@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class ExecutiveCouncilMember extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'position',
+        'slug',
+        'image',
+        'biography',
+        'display_order',
+        'is_active',
+    ];
+
+    protected function casts(): array
+    {
+        return [
+
+            'is_active' => 'boolean',
+        ];
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', true);
+    }
+
+    public function scopeOrdered($query)
+    {
+        return $query->orderBy('display_order');
+    }
+}
