@@ -25,11 +25,17 @@ class UpdateArtifactRequest extends FormRequest
 
         return [
             'title' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255|unique:artifacts,slug,' . $artifactId,
+            'slug' => 'nullable|string|max:255|unique:artifacts,slug,'.$artifactId,
             'description' => 'required|string',
             'category' => 'required|string|max:255',
             'sort_order' => 'nullable|integer|min:0',
             'is_active' => 'nullable|boolean',
+            'images' => 'nullable|array|max:10',
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
+            'image_alt_texts' => 'nullable|array',
+            'image_alt_texts.*' => 'nullable|string|max:255',
+            'existing_image_ids' => 'nullable|array',
+            'existing_image_ids.*' => 'integer|exists:images,id',
         ];
     }
 

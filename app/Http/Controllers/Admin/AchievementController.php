@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreAchievementRequest;
 use App\Http\Requests\Admin\UpdateAchievementRequest;
 use App\Models\Achievement;
+use App\Models\Image;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class AchievementController extends Controller
@@ -60,6 +63,9 @@ class AchievementController extends Controller
 
         $achievement = Achievement::create($validated);
 
+        // Handle image uploads
+        $this->handleImageUploads($achievement, $request);
+
         return redirect()
             ->route('admin.achievements.index')
             ->with('success', 'Achievement created successfully.');
@@ -108,6 +114,12 @@ class AchievementController extends Controller
 
         $achievement->update($validated);
 
+        // Handle existing images management
+        $this->handleExistingImages($achievement, $request);
+
+        // Handle new image uploads
+        $this->handleImageUploads($achievement, $request);
+
         return redirect()
             ->route('admin.achievements.show', $achievement)
             ->with('success', 'Achievement updated successfully.');
@@ -124,5 +136,57 @@ class AchievementController extends Controller
         return redirect()
             ->route('admin.achievements.index')
             ->with('success', "Achievement '{$achievementTitle}' deleted successfully.");
+    }
+
+    /**
+     * Handle uploaded images for an achievement
+     */
+    private function handleImageUploads(Achievement $achievement, Request $request): void
+    {
+        if (! $request->hasFile('images')) {
+            return;
+        }
+
+        $images = $request->file('images');
+        $altTexts = $request->input('image_alt_texts', []);
+        $sortOrder = $achievement->images()->max('sort_order') ?? 0;
+
+        foreach ($images as $index => $image) {
+            // Store the image
+            $path = $image->store('achievements', 'public');
+            $url = Storage::url($path);
+
+            // Create image record
+            $achievement->images()->create([
+                'url' => $url,
+                'alt_text' => $altTexts[$index] ?? null,
+                'sort_order' => ++$sortOrder,
+            ]);
+        }
+    }
+
+    /**
+     * Handle existing images management during update
+     */
+    private function handleExistingImages(Achievement $achievement, Request $request): void
+    {
+        $existingImageIds = $request->input('existing_image_ids', []);
+        $existingAltTexts = $request->input('existing_alt_texts', []);
+
+        // Remove images that are not in the existing_image_ids array
+        $achievement->images()->whereNotIn('id', $existingImageIds)->each(function ($image) {
+            // Delete the file from storage
+            $path = str_replace('/storage/', '', $image->url);
+            if (Storage::disk('public')->exists($path)) {
+                Storage::disk('public')->delete($path);
+            }
+            // Delete the database record
+            $image->delete();
+        });
+
+        // Update alt texts for existing images
+        foreach ($existingAltTexts as $imageId => $altText) {
+            $achievement->images()->where('id', $imageId)->update(['alt_text' => $altText]);
+        }
     }
 }

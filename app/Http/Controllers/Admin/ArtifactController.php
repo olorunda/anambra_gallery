@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreArtifactRequest;
 use App\Http\Requests\Admin\UpdateArtifactRequest;
 use App\Models\Artifact;
+use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ArtifactController extends Controller
@@ -47,12 +49,12 @@ class ArtifactController extends Controller
         $originalSlug = $validated['slug'];
         $counter = 1;
         while (Artifact::where('slug', $validated['slug'])->exists()) {
-            $validated['slug'] = $originalSlug . '-' . $counter;
+            $validated['slug'] = $originalSlug.'-'.$counter;
             $counter++;
         }
 
         // Set default sort_order if not provided
-        if (!isset($validated['sort_order'])) {
+        if (! isset($validated['sort_order'])) {
             $validated['sort_order'] = Artifact::max('sort_order') + 1;
         }
 
@@ -60,6 +62,9 @@ class ArtifactController extends Controller
         $validated['is_active'] = $request->has('is_active');
 
         $artifact = Artifact::create($validated);
+
+        // Handle image uploads
+        $this->handleImageUploads($artifact, $request);
 
         return redirect()
             ->route('admin.artifacts.index')
@@ -100,7 +105,7 @@ class ArtifactController extends Controller
         while (Artifact::where('slug', $validated['slug'])
             ->where('id', '!=', $artifact->id)
             ->exists()) {
-            $validated['slug'] = $originalSlug . '-' . $counter;
+            $validated['slug'] = $originalSlug.'-'.$counter;
             $counter++;
         }
 
@@ -108,6 +113,12 @@ class ArtifactController extends Controller
         $validated['is_active'] = $request->has('is_active');
 
         $artifact->update($validated);
+
+        // Handle existing images management
+        $this->handleExistingImages($artifact, $request);
+
+        // Handle new image uploads
+        $this->handleImageUploads($artifact, $request);
 
         return redirect()
             ->route('admin.artifacts.show', $artifact)
@@ -125,5 +136,57 @@ class ArtifactController extends Controller
         return redirect()
             ->route('admin.artifacts.index')
             ->with('success', "Artifact '{$artifactTitle}' deleted successfully.");
+    }
+
+    /**
+     * Handle uploaded images for an artifact
+     */
+    private function handleImageUploads(Artifact $artifact, Request $request): void
+    {
+        if (! $request->hasFile('images')) {
+            return;
+        }
+
+        $images = $request->file('images');
+        $altTexts = $request->input('image_alt_texts', []);
+        $sortOrder = $artifact->images()->max('sort_order') ?? 0;
+
+        foreach ($images as $index => $image) {
+            // Store the image
+            $path = $image->store('artifacts', 'public');
+            $url = Storage::url($path);
+
+            // Create image record
+            $artifact->images()->create([
+                'url' => $url,
+                'alt_text' => $altTexts[$index] ?? null,
+                'sort_order' => ++$sortOrder,
+            ]);
+        }
+    }
+
+    /**
+     * Handle existing images management during update
+     */
+    private function handleExistingImages(Artifact $artifact, Request $request): void
+    {
+        $existingImageIds = $request->input('existing_image_ids', []);
+        $existingAltTexts = $request->input('existing_alt_texts', []);
+
+        // Remove images that are not in the existing_image_ids array
+        $artifact->images()->whereNotIn('id', $existingImageIds)->each(function ($image) {
+            // Delete the file from storage
+            $path = str_replace('/storage/', '', $image->url);
+            if (Storage::disk('public')->exists($path)) {
+                Storage::disk('public')->delete($path);
+            }
+            // Delete the database record
+            $image->delete();
+        });
+
+        // Update alt texts for existing images
+        foreach ($existingAltTexts as $imageId => $altText) {
+            $artifact->images()->where('id', $imageId)->update(['alt_text' => $altText]);
+        }
     }
 }

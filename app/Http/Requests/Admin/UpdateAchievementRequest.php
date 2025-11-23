@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreArtifactRequest extends FormRequest
+class UpdateAchievementRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,17 +21,26 @@ class StoreArtifactRequest extends FormRequest
      */
     public function rules(): array
     {
+        $achievementId = $this->route('achievement')->id ?? null;
+
         return [
             'title' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255|unique:artifacts',
+            'slug' => 'nullable|string|max:255|unique:achievements,slug,'.$achievementId,
             'description' => 'required|string',
-            'category' => 'required|string|max:255',
-            'sort_order' => 'nullable|integer|min:0',
+            'content' => 'nullable|string',
+            'achievement_date' => 'nullable|date',
+            'category' => 'nullable|string|max:255',
+            'meta_data' => 'nullable|array',
             'is_active' => 'nullable|boolean',
+            'sort_order' => 'nullable|integer|min:0',
             'images' => 'nullable|array|max:10',
             'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
             'image_alt_texts' => 'nullable|array',
             'image_alt_texts.*' => 'nullable|string|max:255',
+            'existing_image_ids' => 'nullable|array',
+            'existing_image_ids.*' => 'integer|exists:images,id',
+            'existing_alt_texts' => 'nullable|array',
+            'existing_alt_texts.*' => 'nullable|string|max:255',
         ];
     }
 
@@ -43,10 +52,11 @@ class StoreArtifactRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'title.required' => 'The artifact title is required.',
-            'description.required' => 'The artifact description is required.',
-            'category.required' => 'The artifact category is required.',
+            'title.required' => 'The achievement title is required.',
+            'title.max' => 'The achievement title may not be greater than 255 characters.',
+            'description.required' => 'A description is required.',
             'slug.unique' => 'This slug is already in use.',
+            'achievement_date.date' => 'The achievement date must be a valid date.',
             'sort_order.min' => 'Sort order must be 0 or greater.',
         ];
     }
