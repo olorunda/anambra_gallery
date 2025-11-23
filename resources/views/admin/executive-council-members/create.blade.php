@@ -15,7 +15,7 @@
                 </a>
             </div>
 
-            <form method="POST" action="{{ route('admin.executive-council-members.store') }}">
+            <form method="POST" action="{{ route('admin.executive-council-members.store') }}" enctype="multipart/form-data">
                 @csrf
 
                 <div class="card-body">
@@ -54,10 +54,10 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="image" class="form-label">Image URL <span class="text-danger">*</span></label>
-                                <input type="url" class="form-control @error('image') is-invalid @enderror"
-                                       id="image" name="image" value="{{ old('image') }}"
-                                       placeholder="https://example.com/portrait.jpg" required>
+                                <label for="image" class="form-label">Image Upload <span class="text-danger">*</span></label>
+                                <input type="file" class="form-control @error('image') is-invalid @enderror"
+                                       id="image" name="image" accept="image/*" required>
+                                <div class="form-text">Supported formats: JPG, PNG, GIF, WebP (Max: 2MB)</div>
                                 @error('image')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -113,7 +113,7 @@
                                     </div>
                                     <div id="no-preview" class="text-muted py-4">
                                         <i class="bi bi-image" style="font-size: 3rem;"></i>
-                                        <p class="mb-0">Enter an image URL to see preview</p>
+                                        <p class="mb-0">Select an image file to see preview</p>
                                     </div>
                                 </div>
                             </div>
@@ -160,32 +160,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Image preview
-    imageInput.addEventListener('input', function() {
-        const url = this.value.trim();
-        if (url && isValidUrl(url)) {
-            previewImg.src = url;
-            previewImg.onload = function() {
+    imageInput.addEventListener('change', function() {
+        const file = this.files[0];
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewImg.src = e.target.result;
                 previewContainer.classList.remove('d-none');
                 noPreviewContainer.classList.add('d-none');
             };
-            previewImg.onerror = function() {
-                previewContainer.classList.add('d-none');
-                noPreviewContainer.classList.remove('d-none');
-            };
+            reader.readAsDataURL(file);
         } else {
             previewContainer.classList.add('d-none');
             noPreviewContainer.classList.remove('d-none');
         }
     });
-
-    function isValidUrl(string) {
-        try {
-            new URL(string);
-            return true;
-        } catch (_) {
-            return false;
-        }
-    }
 });
 </script>
 @endpush

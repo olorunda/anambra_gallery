@@ -36,7 +36,7 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     @if($member->image)
-                                        <img src="{{ $member->image }}" alt="{{ $member->name }}"
+                                        <img src="{{ $member->image_url }}" alt="{{ $member->name }}"
                                              class="rounded-circle me-3" style="width: 48px; height: 48px; object-fit: cover;">
                                     @endif
                                     <div>

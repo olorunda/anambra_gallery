@@ -51,6 +51,12 @@ class ExecutiveCouncilMemberController extends Controller
             $counter++;
         }
 
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('executive-council-members', 'public');
+            $validated['image'] = $imagePath;
+        }
+
         // Set default display_order if not provided
         if (!isset($validated['display_order'])) {
             $validated['display_order'] = ExecutiveCouncilMember::max('display_order') + 1;
@@ -106,6 +112,21 @@ class ExecutiveCouncilMemberController extends Controller
             ->exists()) {
             $validated['slug'] = $originalSlug . '-' . $counter;
             $counter++;
+        }
+
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            // Delete old image if it exists and is a file path (not URL)
+            if ($executive_council_member->image && !filter_var($executive_council_member->image, FILTER_VALIDATE_URL)) {
+                \Storage::disk('public')->delete($executive_council_member->image);
+            }
+
+            // Store new image
+            $imagePath = $request->file('image')->store('executive-council-members', 'public');
+            $validated['image'] = $imagePath;
+        } else {
+            // Remove image from validation if no file uploaded to keep existing image
+            unset($validated['image']);
         }
 
         // Handle checkbox value

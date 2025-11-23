@@ -27,7 +27,7 @@
                     <div class="col-lg-4">
                         <div class="text-center mb-4">
                             @if($member->image)
-                                <img src="{{ $member->image }}" alt="{{ $member->name }}"
+                                <img src="{{ $member->image_url }}" alt="{{ $member->name }}"
                                      class="img-fluid rounded-circle mb-3" style="width: 200px; height: 200px; object-fit: cover;">
                             @else
                                 <div class="bg-light rounded-circle d-flex align-items-center justify-content-center mb-3 mx-auto"

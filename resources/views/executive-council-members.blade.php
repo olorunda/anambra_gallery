@@ -13,7 +13,7 @@
         @forelse($members as $member)
             <a href="{{ route('executive-council-member', $member->slug) }}" class="group block space-y-4 cursor-pointer transform transition-all duration-300 hover:scale-105">
                 <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-sm group-hover:shadow-lg transition-shadow duration-300">
-                    <img alt="Portrait of {{ $member->name }}" class="w-full h-auto object-cover aspect-[4/3] group-hover:opacity-90 transition-opacity duration-300" src="{{ $member->image }}"/>
+                    <img alt="Portrait of {{ $member->name }}" class="w-full h-auto object-cover aspect-[4/3] group-hover:opacity-90 transition-opacity duration-300" src="{{ $member->image_url }}"/>
                 </div>
                 <div>
                     <h3 class="font-medium text-lg text-gray-900 dark:text-gray-100 group-hover:text-primary transition-colors duration-300">{{ $member->name }}</h3>

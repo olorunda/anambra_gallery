@@ -15,7 +15,7 @@
             <div class="bg-primary p-4 rounded-xl">
                 <img alt="Portrait of {{ $member->name }}"
                      class="w-full h-auto object-cover rounded-lg"
-                     src="{{ $member->image }}"/>
+                     src="{{ $member->image_url }}"/>
             </div>
         </div>
 
