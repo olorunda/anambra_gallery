@@ -22,6 +22,176 @@
             .map-highlight {
                 fill: #fef08a;
             }
+
+            /* Image map area styling */
+            area {
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            /* Create overlay for visual effects */
+            .map-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 10;
+            }
+
+            .map-container {
+                position: relative;
+                display: inline-block;
+            }
+
+            /* Hover effect overlay */
+            .area-hover-overlay {
+                position: absolute;
+                background-color: rgba(250, 204, 21, 0.3); /* primary color with transparency */
+                border: 2px solid #facc15;
+                border-radius: 4px;
+                pointer-events: none;
+                opacity: 0;
+                transition: opacity 0.2s ease-in-out;
+                z-index: 5;
+            }
+
+            /* Selected effect overlay */
+            .area-selected-overlay {
+                position: absolute;
+                background-color: rgba(250, 204, 21, 0.5); /* primary color with more opacity */
+                border: 3px solid #facc15;
+                border-radius: 4px;
+                pointer-events: none;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+                z-index: 6;
+                box-shadow: 0 0 10px rgba(250, 204, 21, 0.6);
+            }
+
+            /* Active states */
+            .area-hover-overlay.active {
+                opacity: 1;
+            }
+
+            .area-selected-overlay.active {
+                opacity: 1;
+            }
+
+            /* Pulse animation for selected areas */
+            .area-selected-overlay.active {
+                animation: pulse-glow 2s infinite;
+            }
+
+            @keyframes pulse-glow {
+                0%, 100% {
+                    box-shadow: 0 0 10px rgba(250, 204, 21, 0.6);
+                }
+                50% {
+                    box-shadow: 0 0 20px rgba(250, 204, 21, 0.8);
+                }
+            }
+
+            /* Call-to-action effects */
+            .map-cta-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 2;
+                background: radial-gradient(circle, transparent 60%, rgba(250, 204, 21, 0.1) 100%);
+                animation: subtle-pulse 3s infinite;
+            }
+
+            .map-instruction {
+                position: absolute;
+                top: -40px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(250, 204, 21, 0.9);
+                color: #1f2937;
+                padding: 8px 16px;
+                border-radius: 20px;
+                font-size: 14px;
+                font-weight: 600;
+                white-space: nowrap;
+                animation: bounce-fade 4s infinite;
+                z-index: 15;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            }
+
+            .map-instruction::after {
+                content: '';
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0;
+                height: 0;
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                border-top: 8px solid rgba(250, 204, 21, 0.9);
+            }
+
+            .map-border-glow {
+                position: absolute;
+                top: -4px;
+                left: -4px;
+                right: -4px;
+                bottom: -4px;
+                border: 2px solid rgba(250, 204, 21, 0.4);
+                border-radius: 12px;
+                pointer-events: none;
+                z-index: 3;
+                animation: border-pulse 2.5s infinite;
+            }
+
+            @keyframes subtle-pulse {
+                0%, 100% {
+                    opacity: 0.3;
+                    transform: scale(1);
+                }
+                50% {
+                    opacity: 0.6;
+                    transform: scale(1.02);
+                }
+            }
+
+            @keyframes bounce-fade {
+                0%, 20%, 50%, 80%, 100% {
+                    transform: translateX(-50%) translateY(0);
+                    opacity: 0.8;
+                }
+                10% {
+                    transform: translateX(-50%) translateY(-5px);
+                    opacity: 1;
+                }
+                40% {
+                    transform: translateX(-50%) translateY(-3px);
+                    opacity: 0.9;
+                }
+            }
+
+            @keyframes border-pulse {
+                0%, 100% {
+                    border-color: rgba(250, 204, 21, 0.2);
+                    box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.4);
+                }
+                50% {
+                    border-color: rgba(250, 204, 21, 0.6);
+                    box-shadow: 0 0 0 4px rgba(250, 204, 21, 0.1);
+                }
+            }
+
+            /* Hide call-to-action after first interaction */
+            .map-container.interacted .map-cta-overlay,
+            .map-container.interacted .map-instruction,
+            .map-container.interacted .map-border-glow {
+                display: none;
+            }
         </style>
         <script>
           tailwind.config = {
@@ -83,9 +253,18 @@
                 </header>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="flex flex-col justify-between">
-                        <div>
+                        <div class="map-container">
                             <!-- Image Map Generated by http://www.image-map.net/ -->
-                            <img src="{{asset('img.png')}}" usemap="#image-map">
+                            <img src="{{asset('img.png')}}" usemap="#image-map" id="anambra-map">
+                            <!-- Call-to-action elements -->
+                            <div class="map-cta-overlay"></div>
+                            <div class="map-instruction">Click on any area to explore</div>
+                            <div class="map-border-glow"></div>
+                            <!-- Interactive overlays -->
+                            <div class="map-overlay">
+                                <div class="area-hover-overlay" id="hover-overlay"></div>
+                                <div class="area-selected-overlay" id="selected-overlay"></div>
+                            </div>
 
                             <map name="image-map">
                                 <area target="" alt="Ayamelum" title="Ayamelum" href="http://ayamelum" coords="619,8,581,41,570,92,551,130,527,202,488,244,465,329,566,288,598,258,623,320,651,350,673,328,757,291,792,233,803,129,888,107,951,53,969,11" shape="poly">
@@ -219,20 +398,158 @@
                 }
             }
 
+            // Global variables for tracking state
+            let currentSelectedArea = null;
+            let hoverOverlay = null;
+            let selectedOverlay = null;
+
+            // Function to calculate bounding box from polygon coordinates
+            function getPolygonBounds(coords) {
+                const points = coords.split(',').map(Number);
+                let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+
+                for (let i = 0; i < points.length; i += 2) {
+                    const x = points[i];
+                    const y = points[i + 1];
+                    minX = Math.min(minX, x);
+                    maxX = Math.max(maxX, x);
+                    minY = Math.min(minY, y);
+                    maxY = Math.max(maxY, y);
+                }
+
+                return { minX, minY, maxX, maxY, width: maxX - minX, height: maxY - minY };
+            }
+
+            // Function to create clip-path from polygon coordinates
+            function createPolygonClipPath(coords, bounds) {
+                const points = coords.split(',').map(Number);
+                const clipPathPoints = [];
+
+                for (let i = 0; i < points.length; i += 2) {
+                    const x = points[i];
+                    const y = points[i + 1];
+                    // Convert coordinates to percentage relative to bounding box
+                    const xPercent = ((x - bounds.minX) / bounds.width) * 100;
+                    const yPercent = ((y - bounds.minY) / bounds.height) * 100;
+                    clipPathPoints.push(`${xPercent}% ${yPercent}%`);
+                }
+
+                return `polygon(${clipPathPoints.join(', ')})`;
+            }
+
+            // Function to position overlay on area
+            function positionOverlay(overlay, area, mapImg) {
+                const coords = area.getAttribute('coords');
+                const shape = area.getAttribute('shape');
+
+                if (shape === 'poly' && coords) {
+                    const bounds = getPolygonBounds(coords);
+                    const mapRect = mapImg.getBoundingClientRect();
+                    const mapContainer = mapImg.parentElement;
+
+                    // Use the already scaled coordinates from imageMapResizer
+                    // The imageMapResizer library has already updated the coords to match the current image size
+                    // So we can use them directly without additional scaling
+                    overlay.style.left = bounds.minX + 'px';
+                    overlay.style.top = bounds.minY + 'px';
+                    overlay.style.width = bounds.width + 'px';
+                    overlay.style.height = bounds.height + 'px';
+
+                    // Create and apply the polygon clip-path to match the exact shape
+                    const clipPath = createPolygonClipPath(coords, bounds);
+                    overlay.style.clipPath = clipPath;
+                    overlay.style.webkitClipPath = clipPath; // For older browsers
+                }
+            }
+
+            // Function to show hover effect
+            function showHoverEffect(area) {
+                if (!hoverOverlay) return;
+
+                const mapImg = document.getElementById('anambra-map');
+                if (mapImg && mapImg.complete) {
+                    positionOverlay(hoverOverlay, area, mapImg);
+                    hoverOverlay.classList.add('active');
+                }
+            }
+
+            // Function to hide hover effect
+            function hideHoverEffect() {
+                if (hoverOverlay) {
+                    hoverOverlay.classList.remove('active');
+                }
+            }
+
+            // Function to show selected effect
+            function showSelectedEffect(area) {
+                if (!selectedOverlay) return;
+
+                // Remove previous selection
+                if (currentSelectedArea) {
+                    selectedOverlay.classList.remove('active');
+                }
+
+                const mapImg = document.getElementById('anambra-map');
+                if (mapImg && mapImg.complete) {
+                    positionOverlay(selectedOverlay, area, mapImg);
+                    selectedOverlay.classList.add('active');
+                    currentSelectedArea = area;
+                }
+            }
+
             function setupImageMapListeners() {
+                // Get overlay elements
+                hoverOverlay = document.getElementById('hover-overlay');
+                selectedOverlay = document.getElementById('selected-overlay');
+
                 const areas = document.querySelectorAll('area');
+                const mapContainer = document.querySelector('.map-container');
+
                 areas.forEach(area => {
+                    // Click handler
                     area.addEventListener('click', function(e) {
                         e.preventDefault();
+                        // Hide call-to-action effects after first interaction
+                        if (mapContainer) {
+                            mapContainer.classList.add('interacted');
+                        }
                         const alt = this.getAttribute('alt');
                         const areaKey = alt.toLowerCase().replace(/\s+/g, '-');
                         updateAreaDescription(areaKey);
+                        showSelectedEffect(this);
                     });
 
-                    // Add hover effect
+                    // Mouse enter handler
                     area.addEventListener('mouseenter', function() {
-                        this.style.cursor = 'pointer';
+                        // Hide call-to-action effects on first hover too
+                        if (mapContainer && !mapContainer.classList.contains('interacted')) {
+                            mapContainer.classList.add('interacted');
+                        }
+                        showHoverEffect(this);
                     });
+
+                    // Mouse leave handler
+                    area.addEventListener('mouseleave', function() {
+                        hideHoverEffect();
+                    });
+                });
+
+                // Handle window resize to reposition overlays
+                // Use a debounced approach to avoid excessive repositioning during resize
+                let resizeTimeout;
+                window.addEventListener('resize', function() {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(function() {
+                        // Allow imageMapResize to update coordinates first
+                        setTimeout(function() {
+                            if (currentSelectedArea && selectedOverlay) {
+                                const mapImg = document.getElementById('anambra-map');
+                                if (mapImg && mapImg.complete) {
+                                    positionOverlay(selectedOverlay, currentSelectedArea, mapImg);
+                                }
+                            }
+                        }, 50); // Small delay to ensure imageMapResize has finished
+                    }, 100);
                 });
             }
 
