@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline - Anambra Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+            color: #f9fafb;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .offline-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            background: #374151;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            border: 4px solid #4b5563;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #f9fafb;
+        }
+
+        p {
+            font-size: 1.125rem;
+            color: #d1d5db;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .features {
+            background: rgba(55, 65, 81, 0.5);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 30px 0;
+            border: 1px solid #4b5563;
+        }
+
+        .features h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #f3f4f6;
+        }
+
+        .feature-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            color: #d1d5db;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .button {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 0 8px;
+        }
+
+        .button:hover {
+            background: #2563eb;
+        }
+
+        .button.secondary {
+            background: #6b7280;
+        }
+
+        .button.secondary:hover {
+            background: #4b5563;
+        }
+
+        .status {
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .status.offline {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #fca5a5;
+        }
+
+        .status.online {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #6ee7b7;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .offline-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 35px;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="offline-icon">
+            📱
+        </div>
+
+        <h1>You're Offline</h1>
+        <p>Don't worry! You can still explore Anambra Gallery with our offline features.</p>
+
+        <div class="features">
+            <h2>Available Offline:</h2>
+            <ul class="feature-list">
+                <li>Browse previously visited pages</li>
+                <li>View cached cultural artifacts</li>
+                <li>Access historical information</li>
+                <li>Explore executive council members</li>
+                <li>Read about achievements</li>
+            </ul>
+        </div>
+
+        <div>
+            <button class="button" onclick="goBack()">Go Back</button>
+            <button class="button secondary" onclick="tryAgain()">Try Again</button>
+        </div>
+
+        <div id="status" class="status offline">
+            🔴 Currently offline
+        </div>
+    </div>
+
+    <script>
+        // Check online status
+        function updateStatus() {
+            const status = document.getElementById('status');
+            if (navigator.onLine) {
+                status.textContent = '🟢 Back online!';
+                status.className = 'status online';
+            } else {
+                status.textContent = '🔴 Currently offline';
+                status.className = 'status offline';
+            }
+        }
+
+        // Go back to previous page
+        function goBack() {
+            if (history.length > 1) {
+                history.back();
+            } else {
+                window.location.href = '/';
+            }
+        }
+
+        // Try to reload current page
+        function tryAgain() {
+            window.location.reload();
+        }
+
+        // Listen for online/offline events
+        window.addEventListener('online', updateStatus);
+        window.addEventListener('offline', updateStatus);
+
+        // Update status on load
+        updateStatus();
+
+        // Auto-refresh when back online
+        window.addEventListener('online', () => {
+            setTimeout(() => {
+                if (navigator.onLine) {
+                    window.location.reload();
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
