@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.threadnix.anambra.twa",
+        "sha256_cert_fingerprints": ["13:E0:3E:74:32:19:FE:43:50:76:E7:3B:FA:7C:51:DE:14:73:E8:D0:7A:86:DD:E7:B1:E1:BB:53:83:84:48:9D"]
+      }
+    }]
