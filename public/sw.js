@@ -1,4 +1,4 @@
-const CACHE_NAME = 'anambra-gallery-v1';
+const CACHE_NAME = 'anambra-gallery-v3';
 const OFFLINE_PAGE = '/offline.html';
 const FALLBACK_IMAGE = '/images/fallback.png';
 
