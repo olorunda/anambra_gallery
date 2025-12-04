@@ -11,10 +11,10 @@
 
     <!-- Bootstrap CSS -->
     <link href="{{asset('bootstrap.min.css')}}" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="{{asset('bootstrap-icons.css')}}" rel="stylesheet">
+    <!-- Bootstrap Icons (CDN) -->
+    <link href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {

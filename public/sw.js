@@ -153,6 +153,9 @@ async function handleNavigationRequest(request) {
 
 // Handle static assets with cache-first strategy
 async function handleStaticAsset(request) {
+    if(request.url.includes('bootstrap-icons')){
+        return fetch(request);
+    }
   try {
     const cachedResponse = await caches.match(request);
     if (cachedResponse) {
