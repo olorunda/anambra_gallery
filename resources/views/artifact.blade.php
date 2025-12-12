@@ -66,7 +66,7 @@
                 <div class="flex flex-col justify-center">
                     <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">{{ $artifact->title }}</h2>
                     <p class="text-base leading-relaxed text-text-light/90 dark:text-text-dark/90">
-                        {{ $artifact->description }}
+                        {!! $artifact->description !!}
                     </p>
                 </div>
             </div>

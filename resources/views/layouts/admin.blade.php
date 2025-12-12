@@ -184,6 +184,8 @@
                 margin-left: 0;
             }
         }
+        /* Ensure non-WYSIWYG (opt-out) textareas have comfortable height */
+        textarea.form-control { min-height: 240px; }
     </style>
     @stack('styles')
     @yield('styles')
@@ -335,6 +337,39 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Rich Text Editor (TinyMCE) -->
+    <script src="https://cdn.tiny.cloud/1/409qbo6k8552n8vgc4ge7fufka9vqm1relsceldlaqetlttv/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof tinymce !== 'undefined') {
+                tinymce.init({
+                    selector: 'textarea:not([data-wysiwyg="off"])',
+                    plugins: 'link lists image table code codesample autoresize fullscreen',
+                    toolbar: 'undo redo | blocks | bold italic underline | alignleft aligncenter alignright | bullist numlist outdent indent | link table | removeformat | code | fullscreen',
+                    menubar: 'file edit view insert format table tools help',
+                    branding: false,
+                    convert_urls: false,
+                    // Auto-resize with sensible bounds
+                    min_height: 600,
+                    max_height: 1200,
+                    autoresize_bottom_margin: 16,
+                    relative_urls: false,
+                    remove_script_host: false,
+                });
+
+                // Ensure editor content is synced back to the textarea on submit
+                document.querySelectorAll('form').forEach(function (form) {
+                    form.addEventListener('submit', function () {
+                        if (tinymce && tinymce.editors) {
+                            tinymce.triggerSave();
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+
     @stack('scripts')
 </body>
 </html>

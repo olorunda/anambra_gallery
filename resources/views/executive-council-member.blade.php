@@ -29,7 +29,7 @@
                 </h2>
                 <div class="space-y-6 text-stone-700 dark:text-stone-300 leading-relaxed">
 {{--                    @foreach($member->biography as $paragraph)--}}
-                        <p>{{ $member->biography }}</p>
+                        <p>{!! $member->biography !!}  </p>
 {{--                    @endforeach--}}
                 </div>
             </div>

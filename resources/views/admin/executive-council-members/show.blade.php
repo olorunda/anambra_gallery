@@ -86,7 +86,7 @@
                             <div class="card-body">
                                 @if($member->biography)
                                     <div class="biography-content">
-                                        {!! nl2br(e($member->biography)) !!}
+                                        {!!$member->biography !!}
                                     </div>
                                 @else
                                     <p class="text-muted fst-italic">No biography available.</p>

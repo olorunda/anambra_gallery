@@ -349,7 +349,7 @@
                         <h3 class="text-3xl font-bold text-white mb-4">Anambra West</h3>
                         <div class="space-y-4 text-white/80">
                             <p>
-                                Anambra West is a Local Government Area in Anambra State, Nigeria. It is located in the western part of the state and is known for its agricultural activities and riverine communities along the Niger River.
+{{--                                Anambra West is a Local Government Area in Anambra State, Nigeria. It is located in the western part of the state and is known for its agricultural activities and riverine communities along the Niger River.--}}
                             </p>
                             <p class="text-sm text-white/60 italic">
                                 Click on any area of the map above to learn more about different local government areas in Anambra State.
@@ -364,71 +364,234 @@
             const areaDescriptions = {
                 'ayamelum': {
                     title: 'Ayamelum',
-                    description: 'Ayamelum is a Local Government Area in Anambra State, Nigeria. It is known for its agricultural activities and is one of the newer local government areas in the state. The area is predominantly rural with farming as the main economic activity.'
+                    description: `Ayamelum is a local government area (LGA) in Anambra state, in the southeastern part of Nigeria with headquarters in Anaku. Ayamelum’s area is situated at the border between Enugu state and Anambra state. The communities in the area are notable for food production. Ayamelum falls under the Anambra Central senatorial district in Anambra State, Nigeria. As at the 2006 census, this LGA has a total population of 158,152 people.
+
+Overview
+Anambra state, which is located in Nigeria's Southeast geopolitical zone, has the Ayamelum local government area. There are several towns and villages in the area, including Umueje, Igbakwu, Anaku, Umuerum, Ifite, Ogwari, Omasi, and Umumbo, where the LGA's administrative center is located. The Igbo ethnic group is the dominant tribe in the Ayamelum LGA, and both the Igbo and English languages are widely used there. According to estimates, there are 121,855 people living in the Ayamelum LGA, and the majority of them identify as Christians. The Ofalla, Obubezi, and Olila aka festivals are only a few of the prominent and indigenous celebrations held in Ayamelum LGA.
+
+Economy
+Ayamelum LGA residents depend heavily on agriculture for their livelihoods, with a significant portion of the population engaged in both subsistence and commercial farming. In Ayamelum, crops like yams, cassava, cocoyams, and various vegetables are farmed.
+
+Climate
+The climate of Ayamelum is tropical humid with wet and dry seasons and annual rainfall between 1300-3000mm. These areas are characterized by high temperatures, rainfall, and humidity.`
                 },
                 'anambra-east': {
                     title: 'Anambra East',
-                    description: 'Anambra East is a Local Government Area in Anambra State, Nigeria. It is home to several communities and is known for its rich cultural heritage. The area has significant agricultural potential and is developing rapidly.'
+                    description: `Anambra East is a Local Government Area in Anambra State, south-central Nigeria. It has its headquarters in Otuocha. Towns that make up the local government are Aguleri, Enugwu Aguleri, Eziagulu Otu Aguleri, Enugwu Otu Aguleri, Mkpunando-otu Aguleri, Ikem Ivite, Igbariam, Umuoba Anam, Nando, Umueri, and Nsugbe. It is part of the Greater Onitsha Metropolis. Anambra East falls under the Anambra Central senatorial district of Anambra state. As at the 2006 census, this LGA has a total population of 152,149 people.
+
+In Anambra East, oil and gas were discovered in large quantities on the bank of Aguleri town and the president has commissioned exploration on the site and the operational head office of Orient Petroleum and Housing estate is about to be sited in Aguleri by the Orient Petroleum Resources.
+
+Currently, Anambra East local government area recorded history with the successful landing and take-off of the Embraer ERJ 145 jet operated by Air Peace. Anambra State government signed a two billion dollar Memorandum of Understanding with Orient Petroleum Resources and Elite International Investment Limited for the building of an international airport city in Umueri, Anambra East Local Government Area.
+
+Economy
+Yam, rice, cassava, and cocoyam are the main crops grown in the Anambra east LGA, which is both commercial and agricultural. Markets including the Otuocha market, the New parts market, and the Afia Ama market contribute significantly to the area's economic reputation. With significant crude oil deposits discovered in Aguleri town, Anambra East is also endowed with abundant mineral resources.
+
+Climate
+Anambra East LGA's average temperature is 27.5°C, with a humidity of 79%. The region has two significant seasons: the dry season, which runs from November to March, and the rainy season, which lasts from April to October.`
                 },
                 'oyi': {
                     title: 'Oyi',
-                    description: 'Oyi is a Local Government Area in Anambra State, Nigeria. It is an important area for agriculture and has several communities that contribute to the state\'s economy. The area is known for its peaceful environment.'
+                    description: `Oyi is a Local Government Area in Anambra State, Nigeria. It is home to the Oyi people. The towns that make up the local government are Nkwelle Ezunaka, Awkuzu, Ogbunike, Umunede Umunya and Nteje. This LGA falls under the Anambra Central senatorial district. Oyi/Ayamelum is a Federal Constituency represented by Hon Chinedu Eluemuno at the Federal House of Representatives, Abuja. It is part of the Greater Onitsha Metropolis.
+
+Demography
+Oyi LGA's administrative center is in the town of Nteje. Numerous towns and villages, including Ogbunike, Umuneba, Umunya, Nteje, Nkwelle, and Awkuzu, are part of the LGA. Oyi LGA is now expected to have 249,448 residents, with Igbo people making up the majority of the local population. In the LGA, the Igbo language is widely spoken, and Christianity is a very popular religion there. Oyi LGA has a number of vibrant festivals, such as the Ofala and Isigwu festivals, and the area is home to the well-known Ogbunike Caves, a UNESCO World Heritage Site. As at the 2006 census, this LGA has a total population of 168,201 people.
+
+Economy
+The Modern Aluminium market in Ogbunike is one of the several markets in the Oyi LGA, which serves as a major trading center. With products including rice, yams, cassava, and breadfruit cultivated nearby, agriculture plays a significant economic role in Oyi LGA. The LGA is also well-known for its commercial fishing, farming, and hunting operations.
+
+Climate
+The climate in Oyi is tropical monsoon. Throughout the year the temperatures are high and there is a lot of rainfall.`
                 },
                 'awka-north': {
                     title: 'Awka North',
-                    description: 'Awka North is a Local Government Area in Anambra State, Nigeria. It is part of the greater Awka area and serves as an important administrative region. The area is known for its educational institutions and urban development.'
+                    description: `Awka North is a Local Government Area in Anambra State, south-central Nigeria. Towns that make up the local government are Awba Ofemili, Ugbenu, Ugbene, Ebenebe, Achalla (the capital), Urum, Amansea, Amanuke, Isu Aniocha, Mgbakwu. This LGA falls under the Anambra North senatorial district. The headquarters is at Achalla. As at the 2006 census, this LGA has a total population of 112,192 people.
+
+Geography
+The Awka North region experiences wet and dry seasons, with an estimated total precipitation of 2950 mm. The area's average temperature is 27 °C, with average humidity around 70%.
+
+Climate
+Awka North in the wet season is usually warm, unfriendly, and overcast and the dry season is hot, muggy, and sometimes cloudy.
+
+Economy
+Rice, yams, cassava, and maize are grown widely. Residents also engage in fishing in the area's numerous rivers and tributaries. Markets like Eke Awka and Aforigwe support trade.`
                 },
                 'awka-south': {
                     title: 'Awka South',
-                    description: 'Awka South is a Local Government Area in Anambra State, Nigeria. It contains part of Awka, the state capital, and is a major administrative and commercial center. The area is highly developed with modern infrastructure.'
+                    description: `Awka South Local Government Area (LGA) comprises nine towns: Amawbia, Awka, Ezinato, Isiagu, Mbaukwu, Nibo, Nise, Okpuno and Umuawulu. It is in the Anambra North senatorial district. As at the 2006 census, population is 189,654.
+
+Awka is the seat of government with many prominent people. Amawbia hosts the Governor's Lodge and State Prisons. Nise hosts WAEC's state head office and St. Paul University College. Isiagu is notable for fertile farmlands and ancient heritage with current traditional ruler Igwe Augustine Nwankwo (Igwe Agu I of Isiagu).
+
+Economy
+Farming is the main source of income with yam, maize, cocoyam, and cassava cultivated in sizable amounts. Markets include Eke market in Nibo and Awka Capital Territory Modern Market in Isiagu.
+
+Geography
+Wet and dry seasons, ~2950 mm precipitation, average temperature ~27 °C, average humidity ~70%.`
                 },
                 'nijikoka': {
                     title: 'Njikoka',
-                    description: 'Njikoka is a Local Government Area in Anambra State, Nigeria. It is known for its educational institutions and residential areas. The area has a mix of urban and rural communities.'
+                    description: `Njikoka is a Local Government Area in Anambra State, south-east Nigeria. Towns include Abagana, Abba, Enugwu-Agidi, Enugwu-ukwu, Nawfia and Nimo, with headquarters at Abagana. It falls under the Anambra North senatorial district. As at the 2006 census, population is 148,394.
+
+Geography
+Average temperature ~26 °C and humidity ~71%. Numerous rivers and tributaries with ~2600 mm of annual precipitation.
+
+Economy
+A thriving commerce industry including the Enugwu-Agidi International Timber Market. Crops include rice, yams, cocoyams, and cassava. The LGA hosts hotels, banks, businesses, and recreational areas.`
                 },
                 'onisha-north': {
                     title: 'Onitsha North',
-                    description: 'Onitsha North is a Local Government Area in Anambra State, Nigeria. It is part of the commercial hub of Onitsha and contains the famous Onitsha Main Market, one of the largest markets in West Africa.'
+                    description: `Onitsha North is a Local Government Area in Anambra State, Nigeria. Located in Anambra Central senatorial district, it is bordered by Ogbaru to the south, Idemili North and Oyi to the east, and Anambra East to the north. Population (2022 est.): 179,400.
+
+Economy
+Trade-driven; Main Market, Onitsha is situated here. Numerous banks, hotels, restaurants, and leisure spots contribute to the economy.
+
+Climate
+Average temperature ~26 °C. Two seasons with heavy and frequent rainfall. The River Niger flows through the LGA. Deforestation led to an average annual CO2 release of 557t (2001–2022).`
                 },
                 'ogbaru': {
                     title: 'Ogbaru',
-                    description: 'Ogbaru is a Local Government Area in Anambra State, Nigeria. It is located along the Niger River and is known for its fishing and agricultural activities. The area has several riverine communities.'
+                    description: `Ogbaru is a local government area with headquarters in Atani and part of the Greater Onitsha Metropolis. Bordered by parts of Rivers and Delta State, it includes Obeagwe, Oluta, Ochuche, Umunankwo, Okpoko, Odekpe, Atani, and Umuzu.
+
+History
+Ogbaru people are farmers and known historically as warriors; they share lineage and boundaries with Onitsha, Oguta (Imo), Anioma (Delta) and Ndoni (Rivers).
+
+Economy
+Hosts a Nigerian naval base, an industrial river harbor, and strategic roads including the Second Niger Bridge. Projected as a key link to the southeast and south zones.
+
+Geography & Climate
+The Niger River is central to Ogbaru’s territory. Frequent flooding during rainy seasons affects farms; major floods in 2018 and 2020 caused loss of life and displacement.`
                 },
                 'idemili-north': {
                     title: 'Idemili North',
-                    description: 'Idemili North is a Local Government Area in Anambra State, Nigeria. It is an important commercial and residential area with several towns and communities. The area is known for its business activities.'
+                    description: `Idemili North is a Local Government Area in Anambra State, South-Central Nigeria. Towns include Abacha, Abatete, Eziowelle, Ideani, Nkpor, Obosi, Ogidi, Oraukwu, Uke, Umuoji. Headquarters: Ogidi. Part of the Greater Onitsha Metropolis. Population (2006): 431,005.
+
+Economy
+A center for trade with markets including Uke market and Building Materials market. Farming of yam, cassava, cocoyam, and vegetables; residents also engage in fishing, blacksmithing, and handicrafts.
+
+Geography
+Area ~390 sq km; River Idemili flows within. Average temperature ~25°C, humidity ~69%, wind ~11 km/h.`
                 },
                 'idemili-south': {
                     title: 'Idemili South',
-                    description: 'Idemili South is a Local Government Area in Anambra State, Nigeria. It includes several important towns and is known for its commercial activities and cultural heritage.'
+                    description: `Idemili South is a Local Government Area in Anambra State, South-East Nigeria. Headquarters: Ojoto Secretariat. Towns: Akwu-Ukwu, Alor, Awka-Etiti, Ojoto, Nnokwa, Oba and Nnobi. Part of the Greater Onitsha Metropolis. Population (2006): 206,816.
+
+Geography
+River Idemili flows through its ~700 sq km territory. Average temperature ~25°C; rainy and dry seasons; humidity ~69%, wind ~11 km/h.
+
+Economy
+Farming (vegetables, cassava, yam, rice); markets such as Afor Nnobi and Ezeihulu; several hotels, banks, and institutions.`
                 },
                 'anambra-west': {
                     title: 'Anambra West',
-                    description: 'Anambra West is a Local Government Area in Anambra State, Nigeria. It is located in the western part of the state and is known for its agricultural activities and riverine communities along the Niger River.'
+                    description: `Anambra West is a Local Government Area in the northwestern part of Anambra State, Nigeria. Headquarters: Otuocha. Falls under the Anambra Central senatorial district. Population (2006): 167,303.
+
+Geography
+Average temperature ~27.5°C, humidity ~79%. Two seasons: dry (Nov–Mar) and rainy (Apr–Oct).
+
+Economy
+Significant resources with popular fishing. Crops include yam, cassava, corn, and vegetables. Trade thrives with markets like Eke Nnokwa and Owelle Central market.`
                 },
                 'ihiala': {
                     title: 'Ihiala',
-                    description: 'Ihiala is a city in Nigeria, located in the southern part of Anambra State and within the region known as Igboland. It has long served as the local administrative capital of Ihiala Local Government Area. The Local Government Area has a population of about 430,800. Ihiala is the largest city in Ihiala Local Government Area which includes towns like Amorka, Azia, Lilu, Okija, Mbosi, Isseke, Orsumoghu, Ubuluisuzor and Uli. It lies in the agricultural belt of the state. Ihiala falls under the Anambra South senatorial district in Anambra State, Nigeria.'
+                    description: `Ihiala is a city in Nigeria, located in the southern part of Anambra State and within Igboland. It is the administrative capital of Ihiala LGA. Population ~430,800. Towns include Amorka, Azia, Lilu, Okija, Mbosi, Isseke, Orsumoghu, Ubuluisuzor and Uli. Falls under Anambra South senatorial district.
+
+Economy
+Agriculture-focused with vegetables, cassava, yams, and cocoyams. Markets include Nkwor Ihiala and Nkwogbe. Hosts many banks, hotels, and institutions.
+
+Boundaries
+Borders Nnewi LGA (NW), IMO State (NE/E), Ekwusigo (W), and Delta State (S).
+
+Climate
+Rainy season is warm and overcast; dry season hot and partly cloudy (67–87°F typical).`
                 },
                 'orumba-north': {
                     title: 'Orumba North',
-                    description: 'Orumba North is a Local Government Area in Anambra State, Nigeria. It is known for its agricultural activities and traditional communities. The area has several towns and villages with rich cultural heritage.'
+                    description: `Orumba North is a Local Government Area with administrative center at Ajali. Towns include Ndikelionwu, Okpeze, Nanka, Okoh, Omogho, Ufuma, Amaetiti, Awa, and Ndiokolo. Falls under Anambra South senatorial district. Estimated population: 253,120.
+
+Economy
+Hosts hotels, banks, industries, schools, and government establishments. Viable trade with markets such as Afor Udo Nanka and Nkwo Omogho. Other occupations include farming, animal rearing, and beauty treatment.
+
+Geography
+Two seasons (Mar–Oct rainy; Nov–Feb dry). Average temperature ~26°C.`
                 },
                 'orumba-south': {
                     title: 'Orumba South',
-                    description: 'Orumba South is a Local Government Area in Anambra State, Nigeria. It is primarily an agricultural area with several communities engaged in farming activities. The area is known for its peaceful environment.'
+                    description: `Orumba South has headquarters in Umunze. Towns include Akpu, Umuomaku, Eziagu, Ezira, Ihite, Nkerehi (Umuchukwu), Nawfija, Ogboji, Ogbunka, Owerre-Ezukala, Agbudu, Onneh, Isulo, and Enugwu-Umuonyia. Falls under Anambra South senatorial district. Estimated population: 183,447.
+
+Economy
+Markets include Eke Isulo and Nkwo Ogbunka. Farming is significant with rice, yams, maize, and cassava. Hunting, fishing, and wood carving are also important.
+
+Geography
+Average temperature ~26°C; hosts several rivers and streams; distinct dry and rainy seasons; average humidity ~66%.`
                 },
                 'nnewi-south': {
                     title: 'Nnewi South',
-                    description: 'Nnewi South is a Local Government Area in Anambra State, Nigeria. It is part of the greater Nnewi area, which is known as an industrial and commercial hub. The area contributes significantly to the state\'s economy.'
+                    description: `Nnewi South LGA in Anambra South Senatorial Zone has headquarters in Ukpor. Towns and villages include Ezinifite, Utuh, Ebenator, Osumenyi, Amichi, Unubi, Ekwulumili, Azigbo and Akwa-Ihedi. Population is estimated at 218,717. The Chairman is Hon. Van George Chinedu Ezeogidi (assumed office 2024).
+
+Economy
+Heavily industrialized with manufacturing businesses. Vibrant trade in Eke Amichi, Eke Osu and Abanitor markets. Numerous banks, hotels, hospitals, government and private organizations.
+
+Geography
+Many rivers and streams; average temperature ~26 °C; annual precipitation ~2550 mm; average humidity ~72%.`
                 },
                 'aguta': {
                     title: 'Aguata',
-                    description: 'Aguata is a Local Government Area in Anambra State, Nigeria. It is one of the largest local government areas in the state and includes several important towns. The area is known for its commercial activities and cultural significance.'
+                    description: `Aguata is a Local Government Area in Anambra State, Nigeria, under the Anambra South senatorial district. A major part of its headquarters falls into the town of Aguluezechukwu, while a smaller part falls into Ekwulobia. Population: 286,897.
+
+Economy
+Subsistence farming is common. Eke and Nkwo marketplaces support trade. The LGA hosts hotels, microfinance banks, and other enterprises.
+
+Ekwulobia
+Largest town in Aguata (~100,000 people). Major commercial hub with branches of most Nigerian banks, a small stadium, a federal prison (partly in Ezinifite), and Eke Market. New agricultural factories attract workers. Major transit hub with daily transport to cities like Onitsha, Nnewi, Awka, Port Harcourt, Lagos, Abuja, Enugu, and Abakaliki.
+
+Climate
+Warm year-round. Dry season is muggy and partially cloudy; wet season is overcast. Average annual temperature ranges from 17–30°C.
+
+Culture
+The Awuka masquerade of Aguluezechukwu and Nkpokiti Ije Enu Dance are renowned for unique dance steps and have won accolades in Anambra State.`
                 },
                 'derukota': {
                     title: 'Derukota',
-                    description: 'Derukota is a Local Government Area in Anambra State, Nigeria. It is one of the largest local government areas in the state and includes several important towns. The area is known for its commercial activities and cultural significance.'
+                    description: `Derukota (placeholder).`
+                },
+                'dunukofia': {
+                    title: 'Dunukofia',
+                    description: `Dunukofia is a Local Government Area in Anambra State, South-East Nigeria. Towns: Ukpo (HQ), Ifitedunu, Dunukofia Umunnachi, Umudioka, Ukwulu and Nawgu. Borders Awka North, Idemili North, Njikoka and Oyi LGAs. Falls under the Anambra North senatorial district. Population (2006): 96,517.
+
+Geography
+Two main seasons yearly. Average annual temperature ~28°C; average rainfall ~2950 mm.
+
+Economy
+Crops include yam, rice, cassava, and maize; farming is primary. Commerce is vibrant with markets like Afor Igwe market in Umudioka. Education and healthcare facilities are notable.`
+                },
+                'ekwusigo': {
+                    title: 'Ekwusigo',
+                    description: `Ekwusigo is a Local Government Area in Anambra State, south-central Nigeria. Towns: Ozubulu, Oraifite, Ichi and Ihembosi. Headquarters: Ozubulu. Population (2006): 158,429.
+
+Geography
+Two major seasons (dry and rainy), various rivers, average temperature ~26 °C, humidity ~85%, average wind speed ~13 km/h.
+
+Economy & Culture
+Cultivates maize, yams, cassava, and cocoyams. Markets include Ichi central market. Notable for manufacturing, welding, and fishing. Festivals include Uzoiyi and New Yam. The Nigerian Post Office in Ozubulu is a significant landmark.`
+                },
+                'nnewi-north': {
+                    title: 'Nnewi North',
+                    description: `Nnewi North is a Local Government Area where Nnewi is the only town and headquarters. It has four villages: Otolo, Uruagu, Umudim and Nnewi-ichi. Falls under the Anambra South senatorial district. Population (2006): 155,443.
+
+Economy
+Industrialized with many manufacturing businesses. Trade thrives at Nkwo Nnewi Main market. Numerous banks, hotels, rest areas, governmental organizations, and private businesses contribute to the economy.
+
+Geography
+Various rivers and streams; average temperature ~26°C; dry and wet seasons; average humidity ~72%; annual precipitation ~2550 mm.`
+                },
+                'onitsha-south': {
+                    title: 'Onitsha South',
+                    description: `Onitsha South LGA has headquarters in Fegge, Onitsha. Predominantly commercial with markets such as Ochanja that attract thousands of traders. Estimated population ~213,894. Neighborhoods include Modebe, Upper Iweka, Ojukwu Gateway, Arondizuogu Street, Port Harcourt Road, Zik Avenue, Ozomagala Road, and Niger Street. Notable sites: Christ the King College and Our Lady's High School.
+
+Economy
+Trade-driven with numerous markets and businesses including banks, hotels, restaurants, and leisure spots.
+
+Geography
+Average temperature ~26°C; heavy and frequent rainfall in the rainy season. Adjacent to River Niger; average humidity ~79%.`
                 }
             };
 
@@ -440,7 +603,52 @@
 
                     if (titleElement && descriptionContainer) {
                         titleElement.textContent = area.title;
-                        descriptionContainer.innerHTML = '<p>' + area.description + '</p>';
+                        // Convert double newlines to paragraphs and single newlines to <br>
+                        // Also bolden sub-headers like Economy, Climate, etc.
+                        const headerSet = new Set([
+                            'overview',
+                            'economy',
+                            'climate',
+                            'geography',
+                            'history',
+                            'demography',
+                            'demographics',
+                            'boundaries',
+                            'population',
+                            'transportation',
+                            'economy & culture',
+                            'geography & climate',
+                            'ekwulobia',
+                            'culture'
+                        ]);
+
+                        const paragraphs = area.description
+                            .split(/\n{2,}/)
+                            .map(chunk => {
+                                // For each chunk, check if the first line is a header (case-insensitive, optional colon)
+                                const lines = chunk.split(/\n/);
+                                const firstLine = (lines[0] || '').trim();
+                                const normalized = firstLine.replace(/:$/, '').trim().toLowerCase();
+
+                                if (headerSet.has(normalized)) {
+                                    const body = lines.slice(1).join('\n').trim();
+                                    const headerHtml = `<p><strong>${firstLine.replace(/:$/, '')}</strong></p>`;
+                                    if (body.length > 0) {
+                                        return headerHtml + `<p>${body.replace(/\n/g, '<br>')}</p>`;
+                                    }
+                                    return headerHtml;
+                                }
+
+                                // If the whole chunk is exactly a header word alone
+                                if (headerSet.has(chunk.trim().replace(/:$/, '').toLowerCase())) {
+                                    const plain = chunk.trim().replace(/:$/, '');
+                                    return `<p><strong>${plain}</strong></p>`;
+                                }
+
+                                return `<p>${chunk.replace(/\n/g, '<br>')}</p>`;
+                            })
+                            .join('');
+                        descriptionContainer.innerHTML = paragraphs;
                     }
                 }
             }
