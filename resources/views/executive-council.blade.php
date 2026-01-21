@@ -27,7 +27,7 @@
                             <p>{{ $paragraph }}</p>
                         @endforeach
                     @elseif($governor && $governor->biography)
-                        <p>{{ $governor->biography }}</p>
+                        <p>{!! $governor->biography  !!}}</p>
                     @endif
                 </div>
                 <div class="pt-4">
