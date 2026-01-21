@@ -31,7 +31,7 @@ Route::get('/artifact/{slug}', function ($slug) {
 })->name('artifact');
 
 Route::get('/executive-council', function () {
-    $governor = \App\Models\CouncilMember::where('position', 'Governor')->where('is_active', true)->first();
+    $governor = \App\Models\ExecutiveCouncilMember::where('position', 'Governor')->where('is_active', true)->first();
     return view('executive-council', compact('governor'));
 })->name('executive-council');
 
