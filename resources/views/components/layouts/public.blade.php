@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Anambra State')</title>
+    <title>{{ $title ?? 'Anambra State' }}</title>
 
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#1f2937">
@@ -74,8 +74,7 @@
         }
     </style>
     @stack('styles')
-    @yield('styles')
-
+    
     <!-- Service Worker Registration -->
     <script>
     if ('serviceWorker' in navigator) {
@@ -114,29 +113,20 @@
     <!-- Navigation -->
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 min-h-screen flex flex-col">
 
-{{--    <div class="container mx-auto px-4 py-12 md:py-20">--}}
-{{--        <header class="text-center mb-12 md:mb-16">--}}
-{{--            <img alt="Anambra State Logo" class="w-20 h-20 float-left mb-8"--}}
-{{--                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbF4HvfCeUv4Pw4Wt0sWmfDhUtk6mxLhILSvvJRxdpl6uMkpKQ-Kw3i2WG3De4AlAbUQ_51PO03Tj4CIxO5VsNk-o78TRHC72re5wnQN1u_01uIgzM_klHCWtGA5u93FKIl-kemiP_jpSBJQd8QdfkKZXroS3qlOJxop3EzO2Wbgu3yUkf-JYHYyNBFYyaG4W8iQ8QT2X3GwdXz20L9_K4z06Mi6-PHn3fBL4bxUM6EnG6pEIk11ztxtVQwdjsiLavyxdTPAn8KFBw"/>--}}
-{{--            <h1 class="font-display text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-2">--}}
-{{--                @yield('header_title')</h1>--}}
-{{--            <p class="text-lg text-gray-600 dark:text-gray-400">--}}
-{{--                @yield('header_subtitle')--}}
-{{--            </p>--}}
-{{--        </header>--}}
         <header class="flex items-start justify-between mb-8">
-          <a href="{{route('home')}}" wire:navigate>  <img  alt="Anambra State Emblem" class="h-20 w-20" src="{{asset('logo.png')}}"/></a>
+            <a href="{{route('home')}}" wire:navigate><img alt="Anambra State Emblem" class="h-20 w-20 cursor-pointer" src="{{asset('logo.png')}}"/></a>
             <div class="text-center">
-                <h1 class="font-display text-4xl md:text-5xl font-bold">   @yield('header_title')</h1>
+                <h1 class="font-display text-4xl md:text-5xl font-bold">@yield('header_title', $header_title ?? '')</h1>
                 <p class="mt-2 text-lg text-text-light/80 dark:text-text-dark/80">
-                    @yield('header_subtitle')
+                    @yield('header_subtitle', $header_subtitle ?? '')
                 </p>
             </div>
             <div class="w-20"></div>
         </header>
+
     <!-- Main Content -->
     <main>
-        @yield('content')
+        {{ $slot }}
     </main>
 
     <!-- Footer -->
