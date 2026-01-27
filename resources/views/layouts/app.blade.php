@@ -67,6 +67,11 @@
         body {
             font-family: 'Karla', sans-serif;
         }
+        @media all and (display-mode: standalone) {
+            #nprogress {
+                display: none;
+            }
+        }
     </style>
     @stack('styles')
     @yield('styles')

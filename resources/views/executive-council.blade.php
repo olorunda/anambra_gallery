@@ -5,7 +5,7 @@
 @section('header_subtitle',"Learn about the governor's background, leadership journey, and vision for the state")
 @section('content')
 
-    <a class="inline-flex items-center gap-2 mb-8 text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white transition-colors" href="{{ route('about') }}">
+    <a class="inline-flex items-center gap-2 mb-8 text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white transition-colors" href="{{ route('about') }}" wire:navigate>
         <span class="material-icons">arrow_back</span>
         <span>Return back</span>
     </a>
@@ -31,7 +31,7 @@
                     @endif
                 </div>
                 <div class="pt-4">
-                    <a class="inline-block bg-primary text-stone-900 font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-yellow-500 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 dark:focus:ring-offset-background-dark" href="{{ route('executive-council-members') }}">
+                    <a class="inline-block bg-primary text-stone-900 font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-yellow-500 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 dark:focus:ring-offset-background-dark" href="{{ route('executive-council-members') }}" wire:navigate>
                         Members of Executive Council
                     </a>
                 </div>
