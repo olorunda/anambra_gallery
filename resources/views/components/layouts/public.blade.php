@@ -25,44 +25,15 @@
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
 
     <!-- Styles -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        primary: "#f59e0b", // Not present in the image, but a standard practice to fill.
-                        "background-light": "#fefbec",
-                        "background-dark": "#1e1e1e",
-                        "text-light": "#1c1917",
-                        "text-dark": "#e5e5e5",
-                        "button-bg-light": "#e5e7eb",
-                        "button-bg-dark": "#404040",
-                        "button-text-light": "#374151",
-                        "button-text-dark": "#d4d4d4",
-                    },
-                    fontFamily: {
-                        display: ["Libre Baskerville", "serif"],
-                        body: ["Karla", "sans-serif"],
-                    },
-                    borderRadius: {
-                        DEFAULT: "0.75rem",
-                        lg: "1rem",
-                        xl: "1.5rem",
-                    },
-                },
-            },
-        };
-    </script>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="{{asset('imageMapResizer.min.js')}}"></script>
     <style>
         body {
             font-family: 'Karla', sans-serif;
