@@ -12,8 +12,8 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
         <div class="relative">
             <div class="absolute inset-0 bg-yellow-300/40 dark:bg-yellow-800/30 rounded-3xl translate-x-4 translate-y-4"></div>
-            @if($governor && $governor->image)
-                <img alt="Portrait of {{ $governor->name }}" class="relative rounded-3xl w-full h-auto object-cover z-10" src="{{ $governor->image }}"/>
+            @if($governor && $governor->image_url)
+                <img alt="Portrait of {{ $governor->name }}" class="relative rounded-3xl w-full h-auto object-cover z-10" src="{{ $governor->image_url }}"/>
             @endif
         </div>
         <div class="relative">
