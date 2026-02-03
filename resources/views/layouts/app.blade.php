@@ -49,6 +49,12 @@
                         "button-bg-dark": "#404040",
                         "button-text-light": "#374151",
                         "button-text-dark": "#d4d4d4",
+                        "secondary-text-light": "#4b5563", // gray-600
+                        "secondary-text-dark": "#9ca3af", // gray-400
+                        "text-subtle-light": "#6b7280", // gray-500
+                        "text-subtle-dark": "#9ca3af", // gray-400
+                        "arrow-bg-light": "#e5e7eb", // gray-200
+                        "arrow-bg-dark": "#374151", // gray-700
                     },
                     fontFamily: {
                         display: ["Libre Baskerville", "serif"],

@@ -1,8 +1,16 @@
 <div>
-    <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
+    <nav class="flex justify-center items-center space-x-4 sm:space-x-8 mb-12 flex-wrap gap-y-4">
+        <button class="filter-tab active text-text-light dark:text-text-dark font-semibold pb-2 border-b-2 border-text-light dark:border-text-dark transition-colors duration-300" data-filter="all">All</button>
+        <button class="filter-tab text-secondary-text-light dark:text-secondary-text-dark hover:text-text-light dark:hover:text-text-dark transition-colors duration-300" data-filter="sights-sounds">Sights & Sounds</button>
+        <button class="filter-tab text-secondary-text-light dark:text-secondary-text-dark hover:text-text-light dark:hover:text-text-dark transition-colors duration-300" data-filter="artefacts">Artefacts</button>
+        <button class="filter-tab text-secondary-text-light dark:text-secondary-text-dark hover:text-text-light dark:hover:text-text-dark transition-colors duration-300" data-filter="festivals">Festivals</button>
+        <button class="filter-tab text-secondary-text-light dark:text-secondary-text-dark hover:text-text-light dark:hover:text-text-dark transition-colors duration-300" data-filter="people">People of Anambra</button>
+    </nav>
+
+    <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-6" wire:ignore>
         @foreach($artifacts as $index => $artifact)
             @if($index === 0)
-                <div class="md:col-span-1 flex flex-col gap-6">
+                <div class="md:col-span-1 flex flex-col gap-6 artifact-item" data-category="{{ $artifact->category }}">
                     <a href="{{ route('artifact', $artifact->slug) }}" wire:navigate class="relative rounded-lg overflow-hidden h-48 cursor-pointer group">
                         @if($artifact->images->first())
                             <img alt="{{ $artifact->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="{{ $artifact->images->first()->url }}"/>
@@ -12,7 +20,7 @@
                         </div>
                     </a>
             @elseif($index === 1)
-                    <a href="{{ route('artifact', $artifact->slug) }}" wire:navigate class="relative rounded-lg overflow-hidden h-48 cursor-pointer group">
+                    <a href="{{ route('artifact', $artifact->slug) }}" wire:navigate class="relative rounded-lg overflow-hidden h-48 cursor-pointer group artifact-item" data-category="{{ $artifact->category }}">
                         @if($artifact->images->first())
                             <img alt="{{ $artifact->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="{{ $artifact->images->first()->url }}"/>
                         @endif
@@ -22,7 +30,7 @@
                     </a>
                 </div>
             @elseif($index === 2)
-                <a href="{{ route('artifact', $artifact->slug) }}" wire:navigate class="md:col-span-1 relative rounded-lg overflow-hidden h-96 md:h-auto cursor-pointer group">
+                <a href="{{ route('artifact', $artifact->slug) }}" wire:navigate class="md:col-span-1 relative rounded-lg overflow-hidden h-96 md:h-auto cursor-pointer group artifact-item" data-category="{{ $artifact->category }}">
                     @if($artifact->images->first())
                         <img alt="{{ $artifact->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="{{ $artifact->images->first()->url }}"/>
                     @endif
@@ -34,7 +42,7 @@
                     </div>
                 </a>
             @elseif($index === 3)
-                <div class="md:col-span-1 flex flex-col gap-6">
+                <div class="md:col-span-1 flex flex-col gap-6 artifact-item" data-category="{{ $artifact->category }}">
                     <a href="{{ route('artifact', $artifact->slug) }}" wire:navigate class="relative rounded-lg overflow-hidden h-48 cursor-pointer group">
                         @if($artifact->images->first())
                             <img alt="{{ $artifact->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="{{ $artifact->images->first()->url }}"/>
@@ -44,7 +52,7 @@
                         </div>
                     </a>
             @elseif($index === 4)
-                    <a href="{{ route('artifact', $artifact->slug) }}" wire:navigate class="relative rounded-lg overflow-hidden h-48 cursor-pointer group">
+                    <a href="{{ route('artifact', $artifact->slug) }}" wire:navigate class="relative rounded-lg overflow-hidden h-48 cursor-pointer group artifact-item" data-category="{{ $artifact->category }}">
                         @if($artifact->images->first())
                             <img alt="{{ $artifact->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="{{ $artifact->images->first()->url }}"/>
                         @endif
@@ -54,7 +62,7 @@
                     </a>
                 </div>
             @elseif($index === 5)
-                <a href="{{ route('artifact', $artifact->slug) }}" wire:navigate class="w-full mt-6 relative rounded-lg overflow-hidden h-48 cursor-pointer group block">
+                <a href="{{ route('artifact', $artifact->slug) }}" wire:navigate class="w-full mt-6 relative rounded-lg overflow-hidden h-48 cursor-pointer group block artifact-item" data-category="{{ $artifact->category }}">
                     @if($artifact->images->first())
                         <img alt="{{ $artifact->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="{{ $artifact->images->first()->url }}"/>
                     @endif
@@ -94,4 +102,68 @@
             @endif
         </div>
     </footer>
+</div>
+
+    @script
+    <script>
+    document.addEventListener('livewire:navigated', function() {
+        initArtifactFilters();
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        initArtifactFilters();
+    });
+
+    function initArtifactFilters() {
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const artifactItems = document.querySelectorAll('.artifact-item');
+
+        filterTabs.forEach(tab => {
+            // Clone to remove old listeners
+            const newTab = tab.cloneNode(true);
+            tab.parentNode.replaceChild(newTab, tab);
+
+            newTab.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                const allTabs = document.querySelectorAll('.filter-tab');
+
+                // Update active tab styling
+                allTabs.forEach(t => {
+                    t.classList.remove('active', 'text-text-light', 'dark:text-text-dark', 'font-semibold', 'pb-2', 'border-b-2', 'border-text-light', 'dark:border-text-dark');
+                    t.classList.add('text-secondary-text-light', 'dark:text-secondary-text-dark');
+                });
+
+                // Add active styling to clicked tab
+                this.classList.remove('text-secondary-text-light', 'dark:text-secondary-text-dark');
+                this.classList.add('active', 'text-text-light', 'dark:text-text-dark', 'font-semibold', 'pb-2', 'border-b-2', 'border-text-light', 'dark:border-text-dark');
+
+                // Filter artifact items
+                const items = document.querySelectorAll('.artifact-item');
+                items.forEach(item => {
+                    const category = item.getAttribute('data-category');
+
+                    if (filter === 'all' || category === filter) {
+                        item.style.display = 'flex'; // Default for items is block/flex mixed, try flex as safe default or specific
+                         if(item.tagName === 'A' || item.classList.contains('block')) {
+                             item.style.display = 'block';
+                         }
+                         if(item.classList.contains('flex')) {
+                             item.style.display = 'flex';
+                         }
+                        
+                        // Add fade-in effect
+                        item.style.opacity = '0';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transition = 'opacity 0.3s ease-in-out';
+                        }, 50);
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
+    </script>
+    @endscript
 </div>

@@ -34,9 +34,14 @@
 
                             <div class="mb-3">
                                 <label for="category" class="form-label">Category <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control @error('category') is-invalid @enderror"
-                                       id="category" name="category" value="{{ old('category') }}"
-                                       placeholder="e.g., Pottery, Textiles, Sculptures, Jewelry" required>
+                                <select class="form-select @error('category') is-invalid @enderror"
+                                        id="category" name="category" required>
+                                    <option value="" selected disabled>Select a category</option>
+                                    <option value="sights-sounds" {{ old('category') == 'sights-sounds' ? 'selected' : '' }}>Sights & Sounds</option>
+                                    <option value="artefacts" {{ old('category') == 'artefacts' ? 'selected' : '' }}>Artefacts</option>
+                                    <option value="festivals" {{ old('category') == 'festivals' ? 'selected' : '' }}>Festivals</option>
+                                    <option value="people" {{ old('category') == 'people' ? 'selected' : '' }}>People of Anambra</option>
+                                </select>
                                 @error('category')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror

@@ -45,9 +45,16 @@
 
                             <div class="mb-3">
                                 <label for="category" class="form-label">Category</label>
-                                <input type="text" class="form-control @error('category') is-invalid @enderror"
-                                       id="category" name="category" value="{{ old('category') }}"
-                                       placeholder="e.g., Infrastructure, Education, Healthcare">
+                                <select class="form-select @error('category') is-invalid @enderror"
+                                        id="category" name="category">
+                                    <option value="" selected disabled>Select a category</option>
+                                    <option value="infrastructure-transportation" {{ old('category') == 'infrastructure-transportation' ? 'selected' : '' }}>Infrastructure and Transportation</option>
+                                    <option value="healthcare" {{ old('category') == 'healthcare' ? 'selected' : '' }}>Healthcare Sector</option>
+                                    <option value="education-human-capital" {{ old('category') == 'education-human-capital' ? 'selected' : '' }}>Education and Human Capital Development</option>
+                                    <option value="technology-digital" {{ old('category') == 'technology-digital' ? 'selected' : '' }}>Technology and Digital Transformation</option>
+                                    <option value="security-safety" {{ old('category') == 'security-safety' ? 'selected' : '' }}>Security and Safety</option>
+                                    <option value="economic-social" {{ old('category') == 'economic-social' ? 'selected' : '' }}>Economic and Social Development</option>
+                                </select>
                                 @error('category')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror

@@ -1,10 +1,12 @@
 <div>
-<nav class="flex justify-center items-center space-x-4 sm:space-x-8 mb-12">
+<nav class="flex justify-center items-center space-x-4 sm:space-x-8 mb-12 flex-wrap gap-y-4">
 <button class="filter-tab active text-text-light dark:text-text-dark font-semibold pb-2 border-b-2 border-text-light dark:border-text-dark transition-colors duration-300" data-filter="all">All</button>
-<button class="filter-tab text-secondary-text-light dark:text-secondary-text-dark hover:text-text-light dark:hover:text-text-dark transition-colors duration-300" data-filter="roads">Roads</button>
-<button class="filter-tab text-secondary-text-light dark:text-secondary-text-dark hover:text-text-light dark:hover:text-text-dark transition-colors duration-300" data-filter="education">Education</button>
-<button class="filter-tab text-secondary-text-light dark:text-secondary-text-dark hover:text-text-light dark:hover:text-text-dark transition-colors duration-300" data-filter="government">New Government House</button>
-<button class="filter-tab text-secondary-text-light dark:text-secondary-text-dark hover:text-text-light dark:hover:text-text-dark transition-colors duration-300" data-filter="healthcare">Healthcare</button>
+<button class="filter-tab text-secondary-text-light dark:text-secondary-text-dark hover:text-text-light dark:hover:text-text-dark transition-colors duration-300" data-filter="infrastructure-transportation">Infrastructure and Transportation</button>
+<button class="filter-tab text-secondary-text-light dark:text-secondary-text-dark hover:text-text-light dark:hover:text-text-dark transition-colors duration-300" data-filter="healthcare">Healthcare Sector</button>
+<button class="filter-tab text-secondary-text-light dark:text-secondary-text-dark hover:text-text-light dark:hover:text-text-dark transition-colors duration-300" data-filter="education-human-capital">Education and Human Capital Development</button>
+<button class="filter-tab text-secondary-text-light dark:text-secondary-text-dark hover:text-text-light dark:hover:text-text-dark transition-colors duration-300" data-filter="technology-digital">Technology and Digital Transformation</button>
+<button class="filter-tab text-secondary-text-light dark:text-secondary-text-dark hover:text-text-light dark:hover:text-text-dark transition-colors duration-300" data-filter="security-safety">Security and Safety</button>
+<button class="filter-tab text-secondary-text-light dark:text-secondary-text-dark hover:text-text-light dark:hover:text-text-dark transition-colors duration-300" data-filter="economic-social">Economic and Social Development</button>
 </nav>
 
 <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="achievements-grid" wire:ignore>
