@@ -112,6 +112,32 @@
                             </div>
                         @endif
 
+                        @if($achievement->images->count() > 0)
+                            <div class="card mt-4">
+                                <div class="card-header">
+                                    <h6 class="mb-0">Images</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row g-3">
+                                        @foreach($achievement->images as $image)
+                                            <div class="col-md-4 col-sm-6">
+                                                <div class="card h-100">
+                                                    <a href="{{ $image->url }}" target="_blank">
+                                                        <img src="{{ $image->url }}" class="card-img-top" style="height: 150px; object-fit: cover;" alt="{{ $image->alt_text }}">
+                                                    </a>
+                                                    @if($image->alt_text)
+                                                        <div class="card-footer p-2 text-muted small text-truncate">
+                                                            {{ $image->alt_text }}
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+
                         @if($achievement->meta_data && count($achievement->meta_data) > 0)
                             <div class="card mt-4">
                                 <div class="card-header">
