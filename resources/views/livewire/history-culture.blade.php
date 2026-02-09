@@ -15,7 +15,7 @@
                         @if($artifact->images->first())
                             <img alt="{{ $artifact->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="{{ $artifact->images->first()->url }}"/>
                         @endif
-                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end p-4 group-hover:bg-opacity-40 transition-all duration-300">
+                        <div class="absolute inset-0 bg-black/30 flex items-end p-4 group-hover:bg-black/40 transition-all duration-300">
                             <span class="text-white font-semibold">{{ $artifact->category }}</span>
                         </div>
                     </a>
@@ -24,7 +24,7 @@
                         @if($artifact->images->first())
                             <img alt="{{ $artifact->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="{{ $artifact->images->first()->url }}"/>
                         @endif
-                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end p-4 group-hover:bg-opacity-40 transition-all duration-300">
+                        <div class="absolute inset-0 bg-black/30 flex items-end p-4 group-hover:bg-black/40 transition-all duration-300">
                             <span class="text-white font-semibold">{{ $artifact->category }}</span>
                         </div>
                     </a>
@@ -47,7 +47,7 @@
                         @if($artifact->images->first())
                             <img alt="{{ $artifact->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="{{ $artifact->images->first()->url }}"/>
                         @endif
-                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end p-4 group-hover:bg-opacity-40 transition-all duration-300">
+                        <div class="absolute inset-0 bg-black/30 flex items-end p-4 group-hover:bg-black/40 transition-all duration-300">
                             <span class="text-white font-semibold">{{ $artifact->category }}</span>
                         </div>
                     </a>
@@ -56,7 +56,7 @@
                         @if($artifact->images->first())
                             <img alt="{{ $artifact->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="{{ $artifact->images->first()->url }}"/>
                         @endif
-                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end p-4 group-hover:bg-opacity-40 transition-all duration-300">
+                        <div class="absolute inset-0 bg-black/30 flex items-end p-4 group-hover:bg-black/40 transition-all duration-300">
                             <span class="text-white font-semibold">{{ $artifact->category }}</span>
                         </div>
                     </a>
@@ -66,7 +66,7 @@
                     @if($artifact->images->first())
                         <img alt="{{ $artifact->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="{{ $artifact->images->first()->url }}"/>
                     @endif
-                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end p-4 group-hover:bg-opacity-40 transition-all duration-300">
+                    <div class="absolute inset-0 bg-black/30 flex items-end p-4 group-hover:bg-black/40 transition-all duration-300">
                         <span class="text-white font-semibold">{{ $artifact->category }}</span>
                     </div>
                 </a>
