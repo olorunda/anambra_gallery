@@ -32,6 +32,11 @@ class ExecutiveCouncilMember extends Model
         return $query->where('is_active', true);
     }
 
+        public function scopeExcludegov($query)
+    {
+        return $query->where('position','!=' ,'Governor');
+    }
+
     public function scopeOrdered($query)
     {
         return $query->orderBy('display_order');

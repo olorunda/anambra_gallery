@@ -14,7 +14,7 @@ class ExecutiveCouncilMembers extends Component
     #[Layout('components.layouts.public', ['header_title' => 'Members of Executive Council', 'header_subtitle' => 'Meet the members driving the state\'s governance and development.'])]
     public function render()
     {
-        $members = ExecutiveCouncilMember::active()->ordered()->simplePaginate(10);
+        $members = ExecutiveCouncilMember::active()->excludegov()->ordered()->simplePaginate(10);
         return view('livewire.executive-council-members', compact('members'));
     }
 }
