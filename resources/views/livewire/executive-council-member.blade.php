@@ -28,7 +28,7 @@
 
             <div class="flex justify-between items-center mt-12 lg:mt-16">
                 <p class="font-display text-5xl text-stone-900 dark:text-stone-100">
-                    {{ $member->id }}<span class="text-3xl text-gray-500 dark:text-gray-400">/{{ $totalMembers }}</span>
+                    {{ $member->display_order+1 }}<span class="text-3xl text-gray-500 dark:text-gray-400">/{{ $totalMembers }}</span>
                 </p>
                 <div class="flex items-center gap-4">
                     @if($previousMember)
