@@ -11,7 +11,7 @@ class ExecutiveCouncil extends Component
     #[Layout('components.layouts.public', ['header_title' => 'Executive Council', 'header_subtitle' => 'Meet the distinguished leaders and visionaries guiding Anambra State towards a prosperous future.'])]
     public function render()
     {
-        $members = ExecutiveCouncilMember::active()->excludegov()->ordered()->get();
+        $members = ExecutiveCouncilMember::active()->ordered()->get();
         return view('livewire.executive-council', compact('members'));
     }
 }
