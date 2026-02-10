@@ -15,6 +15,7 @@ class ExecutiveCouncilMembers extends Component
     public function render()
     {
         $members = ExecutiveCouncilMember::active()->excludegov()->ordered()->simplePaginate(10);
+
         return view('livewire.executive-council-members', compact('members'));
     }
 }

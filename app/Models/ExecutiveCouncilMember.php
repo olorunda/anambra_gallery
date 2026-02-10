@@ -34,7 +34,7 @@ class ExecutiveCouncilMember extends Model
 
         public function scopeExcludegov($query)
     {
-        return $query->where('positIon','!=' ,'Governor');
+        return $query->where('positionn','!=' ,'Governor');
     }
 
     public function scopeOrdered($query)
