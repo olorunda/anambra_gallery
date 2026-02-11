@@ -17,20 +17,20 @@
             data-filter="people">People of Anambra</button>
     </nav>
 
-    <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" wire:ignore>
+    <div class="w-full columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6" wire:ignore>
         @foreach($artifacts as $artifact)
-            <div class="artifact-item" data-category="{{ $artifact->category }}">
+            <div class="artifact-item break-inside-avoid" data-category="{{ $artifact->category }}">
                 <a href="{{ route('artifact', $artifact->slug) }}" wire:navigate
-                    class="relative rounded-lg overflow-hidden h-64 cursor-pointer group block">
+                    class="relative rounded-lg overflow-hidden cursor-pointer group block mb-6">
                     @if($artifact->images->first())
                         <img alt="{{ $artifact->title }}"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
                             src="{{ $artifact->images->first()->url }}" />
                     @endif
                     <div
                         class="absolute inset-0 bg-black/30 flex items-end p-4 group-hover:bg-black/40 transition-all duration-300">
                         <div class="w-full">
-                            <span class="text-white font-semibold block mb-1">{{ $artifact->category }}</span>
+                            <span class="text-white font-semibold block mb-1 text-sm">{{ $artifact->category }}</span>
                             <h3 class="text-white text-lg font-bold leading-tight">{{ $artifact->title }}</h3>
                         </div>
                     </div>
