@@ -20,7 +20,7 @@
                     shape="poly">
                 <area target="" alt="Oyi" title="Oyi" href="http://oyi"
                     coords="639,493,547,505,514,525,478,531,376,643,373,733,383,745,554,696,600,651" shape="poly">
-                <area target="" alt="Derukota" title="Derukota" href="http://derukota"
+                <area target="" alt="Dunukofia" title="Dunukofia" href="http://dunukofia"
                     coords="648,490,627,570,606,651,563,702,571,708,627,663,721,606,711,554" shape="poly">
                 <area target="" alt="Awka North" title="Awka North" href="http://awka.north"
                     coords="762,302,664,358,632,386,654,418,648,482,717,547,725,600,794,596,824,575,883,589,972,619,977,567,976,548,1023,529,994,512,971,454,933,391,887,339"
@@ -34,7 +34,7 @@
                 <area target="" alt="Onisha North" title="Onisha North" href="http://onisha.north"
                     coords="246,702,284,680,366,687,367,735,373,747,370,769,324,795,321,811,308,811,294,786,232,780,226,771"
                     shape="poly">
-                <area target="" alt="Beside Onisha North" title="Beside Onisha North" href="http://beside_onisha"
+                <area target="" alt="Onisha South" title="Onisha South" href="http://onisha_south"
                     coords="221,779,180,859,264,866,274,825,289,795" shape="poly">
                 <area target="" alt="Ogbaru" title="Ogbaru" href="http://ogbaru"
                     coords="182,875,267,875,331,1025,325,1043,353,1082,323,1148,272,1185,291,1313,273,1351,12,1351,30,1337,38,1293,39,1236,112,1145,146,1060,167,1007,160,924"
@@ -66,11 +66,10 @@
                 <area target="" alt="Nnewi South" title="Nnewi South" href="http://nnewi.south2"
                     coords="606,956,563,1039,475,1103,577,1133,604,1140,670,1152,791,1113,811,1060,756,1030,681,1001,657,968"
                     shape="poly">
-                <area target="" alt="Beside Awka South" title="Beside Awka South" href="http://beside.awka.south"
+                <area target="" alt="Aniocha" title="Aniocha" href="http://aniocha"
                     coords="665,797,671,830,670,844,648,900,634,952,659,960,684,954,698,937,740,929,788,893,849,818,817,788,776,766,773,752,737,759,734,779,715,797"
                     shape="poly">
-                <area target="" alt="Beside Udemili South" title="Beside Udemili South"
-                    href="http://beside.udemili.south"
+                <area target="" alt="Ekwusigo" title="Ekwusigo" href="http://ekwusigo"
                     coords="277,885,311,907,375,925,439,910,443,937,432,996,431,1050,444,1085,464,1106,473,1152,455,1159,402,1127,357,1084,332,1042,337,1028"
                     shape="poly">
             </map>
@@ -101,7 +100,7 @@
                         <area target="" alt="Oyi" title="Oyi" href="http://oyi"
                             coords="639,493,547,505,514,525,478,531,376,643,373,733,383,745,554,696,600,651"
                             shape="poly">
-                        <area target="" alt="Derukota" title="Derukota" href="http://derukota"
+                        <area target="" alt="Dunukofia" title="Dunukofia" href="http://dunukofia"
                             coords="648,490,627,570,606,651,563,702,571,708,627,663,721,606,711,554" shape="poly">
                         <area target="" alt="Awka North" title="Awka North" href="http://awka.north"
                             coords="762,302,664,358,632,386,654,418,648,482,717,547,725,600,794,596,824,575,883,589,972,619,977,567,976,548,1023,529,994,512,971,454,933,391,887,339"
@@ -373,10 +372,6 @@ Warm year-round. Dry season is muggy and partially cloudy; wet season is overcas
 Culture
 The Awuka masquerade of Aguluezechukwu and Nkpokiti Ije Enu Dance are renowned for unique dance steps and have won accolades in Anambra State.`
         },
-        'derukota': {
-            title: 'Derukota',
-            description: `Derukota (placeholder).`
-        },
         'dunukofia': {
             title: 'Dunukofia',
             description: `Dunukofia is a Local Government Area in Anambra State, South-East Nigeria. Towns: Ukpo (HQ), Ifitedunu, Dunukofia Umunnachi, Umudioka, Ukwulu and Nawgu. Borders Awka North, Idemili North, Njikoka and Oyi LGAs. Falls under the Anambra North senatorial district. Population (2006): 96,517.
@@ -416,6 +411,38 @@ Trade-driven with numerous markets and businesses including banks, hotels, resta
 
 Geography
 Average temperature ~26°C; heavy and frequent rainfall in the rainy season. Adjacent to River Niger; average humidity ~79%.`
+        },
+        'onisha-south': {
+            title: 'Onitsha South',
+            description: `Onitsha South LGA has headquarters in Fegge, Onitsha. Predominantly commercial with markets such as Ochanja that attract thousands of traders. Estimated population ~213,894. Neighborhoods include Modebe, Upper Iweka, Ojukwu Gateway, Arondizuogu Street, Port Harcourt Road, Zik Avenue, Ozomagala Road, and Niger Street. Notable sites: Christ the King College and Our Lady's High School.
+
+Economy
+Trade-driven with numerous markets and businesses including banks, hotels, restaurants, and leisure spots.
+
+Geography
+Average temperature ~26°C; heavy and frequent rainfall in the rainy season. Adjacent to River Niger; average humidity ~79%.`
+        },
+        'aniocha': {
+            title: 'Aniocha',
+            description: `Aniocha is a Local Government Area in Anambra State with headquarters in Neni. It comprises towns such as Nri, Aguluzigbo, Adazi-Ani, Adazi-Nnukwu, Adazi-Enu, Ichida, Akwaeze, Obeledu, and Neni. Nri is historically regarded as the cradle of Igbo civilization.
+
+Economy
+Aniocha has an active trading culture and small-scale industries alongside extensive farming of yam, cassava, cocoyam, and vegetables. Local markets like Neni and Adazi support commerce.
+
+Geography & Climate
+Typical tropical climate with distinct rainy (Apr–Oct) and dry (Nov–Mar) seasons; average temperatures in the mid-20s °C.`
+        },
+        'beside-onisha-north': {
+            title: 'Map Boundary Area',
+            description: `This polygon marks a boundary/overlap region on the illustrative map near Onitsha North. Please tap a labeled Local Government Area (e.g., Onitsha North, Idemili North, Ogbaru) to see detailed information.`
+        },
+        'beside-awka-south': {
+            title: 'Map Boundary Area',
+            description: `This is a boundary/connector region adjacent to Awka South on the map. Select a nearby labeled LGA (Awka South, Njikoka, Idemili South, or Dunukofia) for full details.`
+        },
+        'beside-udemili-south': {
+            title: 'Map Boundary Area',
+            description: `This polygon represents a narrow boundary zone close to Idemili South. Choose a labeled neighboring LGA (Idemili South, Idemili North, Ekwusigo, or Nnewi North/South) to learn more.`
         }
     };
 
